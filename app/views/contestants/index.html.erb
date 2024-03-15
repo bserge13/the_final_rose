@@ -1,0 +1,7 @@
+<h2> Season <%=@bach.season_number%> Contestants </h2>
+
+<% @contestants.each do |contestant| %>
+  <ul><%= link_to contestant.name, contestant_path(contestant) %>
+  <li>Age: <%=contestant.age %>
+  <li>Hometown: <%=contestant.hometown %>
+<% end %> 
