@@ -6,5 +6,8 @@
 <p><h3>Contestants:</h3>
 
 <% @contestants.each do |contestant| %>
-  <ul><%= contestant.name %>
+  <section id=<%= "contestant-#{contestant.id}" %>>
+    <ul><%= contestant.name %>
+      <%= button_to "Remove",  "/contestant_outings/delete/#{contestant.id}/#{@outing.id}" %>
+  </section>
 <% end %>
