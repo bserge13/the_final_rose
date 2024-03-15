@@ -1,0 +1,8 @@
+<h2><%= @contestant.name %></h2>
+<p><h3>Season <%=@bach.season_number%> - <%=@bach.season_description%></h3>
+
+<p><h4>Outings</h4>
+
+<% @contestant.outings.each do |outing| %>
+    <li><%= link_to outing.event, outing_path(outing) %>
+<% end %>

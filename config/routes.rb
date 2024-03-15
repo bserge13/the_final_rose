@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :contestants, only: [:index, :show] 
+
+  resources :outings, only: [:index, :show]
 end
