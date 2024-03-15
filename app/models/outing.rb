@@ -4,4 +4,8 @@ class Outing < ApplicationRecord
 
   validates :event, :location, :date, presence: true
 
+  def contestant_count
+    contestants.count
+  end
+
 end
