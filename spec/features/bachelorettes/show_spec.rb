@@ -15,6 +15,7 @@ RSpec.describe 'Show and Index page' do
       expect(page).to have_content("Season #{@bach_1.season_number} - #{@bach_1.season_description}")
 
       expect(page).to have_link("Season #{@bach_1.season_number} Contestants")
+      
     end
   end
 end
