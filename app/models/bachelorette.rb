@@ -7,4 +7,11 @@ class Bachelorette < ApplicationRecord
   def avg_ages
     contestants.average(:age).to_f
   end
+
+  def hometown_list 
+    list = self.contestants.map do |contestant|
+      contestant.hometown
+    end
+    list.uniq.join(", ")
+  end
 end

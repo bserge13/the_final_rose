@@ -24,6 +24,12 @@ RSpec.describe 'Bachelorette Show and Index page' do
       expect(page).to have_content("Age: #{nova.age}")
       expect(page).to have_content("Hometown: #{nova.hometown}")
 
+      within "#Hometowns" do 
+        expect(page).to have_content('These Contestants are from these hometowns:')
+        expect(page).to have_content('Evansville, IN')
+        expect(page).to have_content('Henderson, KY')
+      end
+
       click_link(karl.name)
       expect(current_path).to eq(contestant_path(karl))
     end
