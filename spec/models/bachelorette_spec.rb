@@ -13,13 +13,21 @@ RSpec.describe Bachelorette, type: :model do
   end
 
   describe 'Instance methods' do 
-    it '#avg_ages' do 
-    bach = Bachelorette.create!(name: 'Hannah Brown', season_number: 15, season_description: 'The Most Dramatic Season Yet!')
-      
-    loki = Contestant.create!(name: 'Loki', age: 28, hometown: 'Evansville, IN', bachelorette_id: bach.id)
-    karl = Contestant.create!(name: 'Karl', age: 21, hometown: 'Evansville, IN', bachelorette_id: bach.id)
+    before :each do 
+      @bach = Bachelorette.create!(name: 'Hannah Brown', season_number: 15, season_description: 'The Most Dramatic Season Yet!')
+        
+      @loki = Contestant.create!(name: 'Loki', age: 28, hometown: 'Evansville, IN', bachelorette_id: @bach.id)
+      @karl = Contestant.create!(name: 'Karl', age: 39, hometown: 'Evansville, IN', bachelorette_id: @bach.id)
+      @nova = Contestant.create!(name: 'Nova', age: 32, hometown: 'Henderson, KY', bachelorette_id: @bach.id)
 
-    expect(bach.avg_ages).to eq(24.5)
+    end
+
+    it '#avg_ages' do 
+      expect(@bach.avg_ages).to eq(33.0)
+    end
+
+    it '#hometown_list' do 
+      expect(@bach.hometown_list).to eq('Evansville, IN, Henderson, KY') 
     end
   end
 end
